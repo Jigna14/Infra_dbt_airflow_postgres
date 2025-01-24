@@ -1,0 +1,49 @@
+[2025-01-10T10:09:00.053+0000] {processor.py:186} INFO - Started process (PID=597) to work on /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:09:00.071+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/placeholder_dag.py for tasks to queue
+[2025-01-10T10:09:00.087+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:09:00.087+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:09:00.342+0000] {processor.py:925} INFO - DAG(s) 'placeholder_dag' retrieved from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:09:00.442+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:09:00.441+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-10T10:09:00.580+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:09:00.579+0000] {dag.py:4180} INFO - Setting next_dagrun for placeholder_dag to 2025-01-10 00:00:00+00:00, run_after=2025-01-11 00:00:00+00:00
+[2025-01-10T10:09:00.728+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/placeholder_dag.py took 0.699 seconds
+[2025-01-10T10:09:31.117+0000] {processor.py:186} INFO - Started process (PID=613) to work on /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:09:31.119+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/placeholder_dag.py for tasks to queue
+[2025-01-10T10:09:31.122+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:09:31.121+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:09:31.145+0000] {processor.py:925} INFO - DAG(s) 'placeholder_dag' retrieved from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:09:31.178+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:09:31.177+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-10T10:09:31.210+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:09:31.210+0000] {dag.py:4180} INFO - Setting next_dagrun for placeholder_dag to 2025-01-10 00:00:00+00:00, run_after=2025-01-11 00:00:00+00:00
+[2025-01-10T10:09:31.229+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/placeholder_dag.py took 0.119 seconds
+[2025-01-10T10:10:01.409+0000] {processor.py:186} INFO - Started process (PID=623) to work on /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:10:01.410+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/placeholder_dag.py for tasks to queue
+[2025-01-10T10:10:01.412+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:10:01.411+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:10:01.429+0000] {processor.py:925} INFO - DAG(s) 'placeholder_dag' retrieved from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:10:01.450+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:10:01.450+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-10T10:10:01.476+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:10:01.476+0000] {dag.py:4180} INFO - Setting next_dagrun for placeholder_dag to 2025-01-10 00:00:00+00:00, run_after=2025-01-11 00:00:00+00:00
+[2025-01-10T10:10:01.498+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/placeholder_dag.py took 0.094 seconds
+[2025-01-10T10:10:31.860+0000] {processor.py:186} INFO - Started process (PID=633) to work on /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:10:31.862+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/placeholder_dag.py for tasks to queue
+[2025-01-10T10:10:31.864+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:10:31.864+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:10:31.897+0000] {processor.py:925} INFO - DAG(s) 'placeholder_dag' retrieved from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:10:31.932+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:10:31.931+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-10T10:10:31.969+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:10:31.969+0000] {dag.py:4180} INFO - Setting next_dagrun for placeholder_dag to 2025-01-10 00:00:00+00:00, run_after=2025-01-11 00:00:00+00:00
+[2025-01-10T10:10:31.991+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/placeholder_dag.py took 0.139 seconds
+[2025-01-10T10:11:02.209+0000] {processor.py:186} INFO - Started process (PID=643) to work on /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:11:02.211+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/placeholder_dag.py for tasks to queue
+[2025-01-10T10:11:02.215+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:11:02.215+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:11:02.245+0000] {processor.py:925} INFO - DAG(s) 'placeholder_dag' retrieved from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:11:02.294+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:11:02.294+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-10T10:11:02.349+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:11:02.349+0000] {dag.py:4180} INFO - Setting next_dagrun for placeholder_dag to 2025-01-10 00:00:00+00:00, run_after=2025-01-11 00:00:00+00:00
+[2025-01-10T10:11:02.384+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/placeholder_dag.py took 0.185 seconds
+[2025-01-10T10:11:32.627+0000] {processor.py:186} INFO - Started process (PID=653) to work on /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:11:32.629+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/placeholder_dag.py for tasks to queue
+[2025-01-10T10:11:32.634+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:11:32.633+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:11:32.672+0000] {processor.py:925} INFO - DAG(s) 'placeholder_dag' retrieved from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T10:11:32.709+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:11:32.708+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-10T10:11:32.745+0000] {logging_mixin.py:190} INFO - [2025-01-10T10:11:32.745+0000] {dag.py:4180} INFO - Setting next_dagrun for placeholder_dag to 2025-01-10 00:00:00+00:00, run_after=2025-01-11 00:00:00+00:00
+[2025-01-10T10:11:32.775+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/placeholder_dag.py took 0.160 seconds
+[2025-01-10T14:11:56.399+0000] {processor.py:186} INFO - Started process (PID=666) to work on /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T14:11:56.403+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/placeholder_dag.py for tasks to queue
+[2025-01-10T14:11:56.445+0000] {logging_mixin.py:190} INFO - [2025-01-10T14:11:56.445+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T14:11:56.590+0000] {processor.py:925} INFO - DAG(s) 'placeholder_dag' retrieved from /opt/airflow/dags/placeholder_dag.py
+[2025-01-10T14:11:56.672+0000] {logging_mixin.py:190} INFO - [2025-01-10T14:11:56.672+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-10T14:11:56.780+0000] {logging_mixin.py:190} INFO - [2025-01-10T14:11:56.780+0000] {dag.py:4180} INFO - Setting next_dagrun for placeholder_dag to 2025-01-10 00:00:00+00:00, run_after=2025-01-11 00:00:00+00:00
+[2025-01-10T14:11:56.876+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/placeholder_dag.py took 0.503 seconds

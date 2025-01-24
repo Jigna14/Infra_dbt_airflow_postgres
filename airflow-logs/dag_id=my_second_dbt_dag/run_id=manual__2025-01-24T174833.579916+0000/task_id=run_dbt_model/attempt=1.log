@@ -1,0 +1,37 @@
+[2025-01-24T17:48:34.223+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-24T17:48:34.238+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_second_dbt_dag.run_dbt_model manual__2025-01-24T17:48:33.579916+00:00 [queued]>
+[2025-01-24T17:48:34.245+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_second_dbt_dag.run_dbt_model manual__2025-01-24T17:48:33.579916+00:00 [queued]>
+[2025-01-24T17:48:34.246+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-01-24T17:48:34.258+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): run_dbt_model> on 2025-01-24 17:48:33.579916+00:00
+[2025-01-24T17:48:34.265+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_second_dbt_dag', 'run_dbt_model', 'manual__2025-01-24T17:48:33.579916+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/my_second_dbt_dag.py', '--cfg-path', '/tmp/tmppu77w_an']
+[2025-01-24T17:48:34.268+0000] {standard_task_runner.py:105} INFO - Job 15: Subtask run_dbt_model
+[2025-01-24T17:48:34.269+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=790) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-24T17:48:34.269+0000] {standard_task_runner.py:72} INFO - Started process 791 to run task
+[2025-01-24T17:48:34.309+0000] {task_command.py:467} INFO - Running <TaskInstance: my_second_dbt_dag.run_dbt_model manual__2025-01-24T17:48:33.579916+00:00 [running]> on host 77d03311c267
+[2025-01-24T17:48:34.411+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_second_dbt_dag' AIRFLOW_CTX_TASK_ID='run_dbt_model' AIRFLOW_CTX_EXECUTION_DATE='2025-01-24T17:48:33.579916+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-24T17:48:33.579916+00:00'
+[2025-01-24T17:48:34.412+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-24T17:48:39.141+0000] {logging_mixin.py:190} INFO - 17:48:36  Running with dbt=1.6.1
+17:48:36  Registered adapter: postgres=1.6.1
+17:48:37  Found 3 models, 2 seeds, 2 sources, 0 exposures, 0 metrics, 464 macros, 0 groups, 0 semantic models
+17:48:37  
+17:48:37  Concurrency: 1 threads (target='dev')
+17:48:37  
+17:48:37  1 of 3 START sql table model jin_schema.my_first_dbt_model ..................... [RUN]
+17:48:38  1 of 3 OK created sql table model jin_schema.my_first_dbt_model ................ [SELECT 2 in 0.31s]
+17:48:38  2 of 3 START sql table model jin_schema.my_second_dbt_model .................... [RUN]
+17:48:38  2 of 3 OK created sql table model jin_schema.my_second_dbt_model ............... [SELECT 1 in 0.05s]
+17:48:38  3 of 3 START sql table model jin_schema.my_third_dbt_model ..................... [RUN]
+17:48:38  3 of 3 OK created sql table model jin_schema.my_third_dbt_model ................ [SELECT 2 in 0.06s]
+17:48:38  
+17:48:38  Finished running 3 table models in 0 hours 0 minutes and 0.55 seconds (0.55s).
+17:48:38  
+17:48:38  Completed successfully
+17:48:38  
+17:48:38  Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[2025-01-24T17:48:39.142+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-01-24T17:48:39.154+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-24T17:48:39.155+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=my_second_dbt_dag, task_id=run_dbt_model, run_id=manual__2025-01-24T17:48:33.579916+00:00, execution_date=20250124T174833, start_date=20250124T174834, end_date=20250124T174839
+[2025-01-24T17:48:39.226+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-24T17:48:39.247+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-24T17:48:39.257+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-01-24T17:48:39.272+0000] {standard_task_runner.py:217} INFO - Process not found (most likely exited), stop collecting metrics

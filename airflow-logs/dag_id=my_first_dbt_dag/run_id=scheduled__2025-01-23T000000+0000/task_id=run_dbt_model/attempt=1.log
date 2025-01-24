@@ -1,0 +1,449 @@
+[2025-01-24T03:48:44.262+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-24T03:48:44.321+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [queued]>
+[2025-01-24T03:48:44.336+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [queued]>
+[2025-01-24T03:48:44.337+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-01-24T03:48:44.357+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): run_dbt_model> on 2025-01-23 00:00:00+00:00
+[2025-01-24T03:48:44.398+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=43058) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-24T03:48:44.376+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_first_dbt_dag', 'run_dbt_model', 'scheduled__2025-01-23T00:00:00+00:00', '--job-id', '52', '--raw', '--subdir', 'DAGS_FOLDER/my_first_dbt_dag.py', '--cfg-path', '/tmp/tmpb1cz23e3']
+[2025-01-24T03:48:44.406+0000] {standard_task_runner.py:105} INFO - Job 52: Subtask run_dbt_model
+[2025-01-24T03:48:44.406+0000] {standard_task_runner.py:72} INFO - Started process 43061 to run task
+[2025-01-24T03:48:44.611+0000] {task_command.py:467} INFO - Running <TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [running]> on host 10a7333bcdf9
+[2025-01-24T03:48:45.020+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_first_dbt_dag' AIRFLOW_CTX_TASK_ID='run_dbt_model' AIRFLOW_CTX_EXECUTION_DATE='2025-01-23T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-23T00:00:00+00:00'
+[2025-01-24T03:48:45.026+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-24T11:34:49.101+0000] {job.py:229} INFO - Heartbeat recovered after 27964.92 seconds
+[2025-01-24T11:35:06.471+0000] {local_task_job_runner.py:346} WARNING - State of this instance has been externally set to up_for_retry. Terminating instance.
+[2025-01-24T11:35:06.477+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-01-24T11:35:06.511+0000] {process_utils.py:132} INFO - Sending 15 to group 43061. PIDs of all processes in the group: [43065, 43061]
+[2025-01-24T11:35:06.516+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 43061
+[2025-01-24T11:35:06.550+0000] {taskinstance.py:3093} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-01-24T11:35:06.662+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=43065, status='terminated', started='03:48:44') (43065) terminated with exit code None
+[2025-01-24T11:35:07.373+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 45, in run_dbt_model
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 2115, in _communicate
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3095, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2025-01-24T11:35:07.692+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=my_first_dbt_dag, task_id=run_dbt_model, run_id=scheduled__2025-01-23T00:00:00+00:00, execution_date=20250123T000000, start_date=20250124T034844, end_date=20250124T113507
+[2025-01-24T11:35:07.805+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-24T11:35:07.941+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=43061, status='terminated', exitcode=2, started='03:48:43') (43061) terminated with exit code 2
+[2025-01-24T15:30:49.495+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-24T15:30:49.525+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [queued]>
+[2025-01-24T15:30:49.538+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [queued]>
+[2025-01-24T15:30:49.540+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-01-24T15:30:49.563+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): run_dbt_model> on 2025-01-23 00:00:00+00:00
+[2025-01-24T15:30:49.575+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_first_dbt_dag', 'run_dbt_model', 'scheduled__2025-01-23T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/my_first_dbt_dag.py', '--cfg-path', '/tmp/tmp5h8z7vqr']
+[2025-01-24T15:30:49.583+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask run_dbt_model
+[2025-01-24T15:30:49.588+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=218) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-24T15:30:49.592+0000] {standard_task_runner.py:72} INFO - Started process 220 to run task
+[2025-01-24T15:30:49.657+0000] {task_command.py:467} INFO - Running <TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [running]> on host a9173c7a3aa2
+[2025-01-24T15:30:49.754+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_first_dbt_dag' AIRFLOW_CTX_TASK_ID='run_dbt_model' AIRFLOW_CTX_EXECUTION_DATE='2025-01-23T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-23T00:00:00+00:00'
+[2025-01-24T15:30:49.755+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-24T15:30:58.607+0000] {logging_mixin.py:190} INFO - 15:30:54  Running with dbt=1.6.1
+15:30:55  Registered adapter: postgres=1.6.1
+15:30:55  Unable to do partial parsing because of a version mismatch
+15:30:57  Found 4 models, 2 seeds, 2 sources, 0 exposures, 0 metrics, 464 macros, 0 groups, 0 semantic models
+15:30:57  
+15:30:57  Concurrency: 1 threads (target='dev')
+15:30:57  
+15:30:57  1 of 1 START sql table model jin_schema.my_first_dbt_model ..................... [RUN]
+15:30:57  1 of 1 OK created sql table model jin_schema.my_first_dbt_model ................ [SELECT 2 in 0.18s]
+15:30:57  
+15:30:57  Finished running 1 table model in 0 hours 0 minutes and 0.37 seconds (0.37s).
+15:30:57  
+15:30:57  Completed successfully
+15:30:57  
+15:30:57  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-01-24T15:30:58.607+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-01-24T15:30:58.623+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-24T15:30:58.624+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=my_first_dbt_dag, task_id=run_dbt_model, run_id=scheduled__2025-01-23T00:00:00+00:00, execution_date=20250123T000000, start_date=20250124T153049, end_date=20250124T153058
+[2025-01-24T15:30:58.625+0000] {taskinstance.py:1563} INFO - Executing callback at index 0: slack_success_callback
+[2025-01-24T15:30:58.625+0000] {taskinstance.py:1567} ERROR - Error in callback at index 0: slack_success_callback
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1565, in _run_finished_callback
+    callback(context)
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 35, in slack_success_callback
+    success_task_alert = SlackWebhookOperator(
+                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 489, in apply_defaults
+    raise AirflowException(f"missing keyword argument {missing_args.pop()!r}")
+airflow.exceptions.AirflowException: missing keyword argument 'slack_webhook_conn_id'
+[2025-01-24T15:30:58.682+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-24T15:30:58.704+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-24T15:30:58.707+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-01-24T17:27:08.627+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-24T17:27:08.667+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [queued]>
+[2025-01-24T17:27:08.690+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [queued]>
+[2025-01-24T17:27:08.691+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-01-24T17:27:08.712+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): run_dbt_model> on 2025-01-23 00:00:00+00:00
+[2025-01-24T17:27:08.729+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_first_dbt_dag', 'run_dbt_model', 'scheduled__2025-01-23T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_first_dbt_dag.py', '--cfg-path', '/tmp/tmpyc19iab1']
+[2025-01-24T17:27:08.732+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask run_dbt_model
+[2025-01-24T17:27:08.741+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=174) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-24T17:27:08.743+0000] {standard_task_runner.py:72} INFO - Started process 176 to run task
+[2025-01-24T17:27:08.812+0000] {task_command.py:467} INFO - Running <TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [running]> on host 0c05e044f03e
+[2025-01-24T17:27:08.960+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_first_dbt_dag' AIRFLOW_CTX_TASK_ID='run_dbt_model' AIRFLOW_CTX_EXECUTION_DATE='2025-01-23T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-23T00:00:00+00:00'
+[2025-01-24T17:27:08.961+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-24T17:27:17.548+0000] {logging_mixin.py:190} INFO - Error during DBT run: 
+[2025-01-24T17:27:17.549+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 54, in run_dbt_model
+    raise e  # Raise again to make sure the task fails correctly
+    ^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 45, in run_dbt_model
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', 'run', '--project-dir', '/opt/dbt-project', '--profiles-dir', '/opt/dbt-project', '--select', 'my_first_dbt_model']' returned non-zero exit status 2.
+[2025-01-24T17:27:17.566+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=my_first_dbt_dag, task_id=run_dbt_model, run_id=scheduled__2025-01-23T00:00:00+00:00, execution_date=20250123T000000, start_date=20250124T172708, end_date=20250124T172717
+[2025-01-24T17:27:17.587+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-24T17:27:17.590+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 2 for task run_dbt_model (Command '['dbt', 'run', '--project-dir', '/opt/dbt-project', '--profiles-dir', '/opt/dbt-project', '--select', 'my_first_dbt_model']' returned non-zero exit status 2.; 176)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 54, in run_dbt_model
+    raise e  # Raise again to make sure the task fails correctly
+    ^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 45, in run_dbt_model
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', 'run', '--project-dir', '/opt/dbt-project', '--profiles-dir', '/opt/dbt-project', '--select', 'my_first_dbt_model']' returned non-zero exit status 2.
+[2025-01-24T17:27:17.625+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-01-24T17:27:17.646+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-24T17:27:17.648+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-01-24T17:32:35.273+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-24T17:32:35.289+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [queued]>
+[2025-01-24T17:32:35.299+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [queued]>
+[2025-01-24T17:32:35.300+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-01-24T17:32:35.328+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): run_dbt_model> on 2025-01-23 00:00:00+00:00
+[2025-01-24T17:32:35.333+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_first_dbt_dag', 'run_dbt_model', 'scheduled__2025-01-23T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_first_dbt_dag.py', '--cfg-path', '/tmp/tmp5kq0tg3z']
+[2025-01-24T17:32:35.335+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask run_dbt_model
+[2025-01-24T17:32:35.336+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=189) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-24T17:32:35.337+0000] {standard_task_runner.py:72} INFO - Started process 190 to run task
+[2025-01-24T17:32:35.374+0000] {task_command.py:467} INFO - Running <TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [running]> on host 77d03311c267
+[2025-01-24T17:32:35.442+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_first_dbt_dag' AIRFLOW_CTX_TASK_ID='run_dbt_model' AIRFLOW_CTX_EXECUTION_DATE='2025-01-23T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-23T00:00:00+00:00'
+[2025-01-24T17:32:35.443+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-24T17:32:46.513+0000] {logging_mixin.py:190} INFO - Error during DBT run: 
+[2025-01-24T17:32:46.514+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 54, in run_dbt_model
+    raise e  # Raise again to make sure the task fails correctly
+    ^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 45, in run_dbt_model
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', 'run', '--project-dir', '/opt/dbt-project', '--profiles-dir', '/opt/dbt-project', '--select', 'my_first_dbt_model']' returned non-zero exit status 2.
+[2025-01-24T17:32:46.527+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=my_first_dbt_dag, task_id=run_dbt_model, run_id=scheduled__2025-01-23T00:00:00+00:00, execution_date=20250123T000000, start_date=20250124T173235, end_date=20250124T173246
+[2025-01-24T17:32:46.540+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-24T17:32:46.541+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 2 for task run_dbt_model (Command '['dbt', 'run', '--project-dir', '/opt/dbt-project', '--profiles-dir', '/opt/dbt-project', '--select', 'my_first_dbt_model']' returned non-zero exit status 2.; 190)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 54, in run_dbt_model
+    raise e  # Raise again to make sure the task fails correctly
+    ^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 45, in run_dbt_model
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', 'run', '--project-dir', '/opt/dbt-project', '--profiles-dir', '/opt/dbt-project', '--select', 'my_first_dbt_model']' returned non-zero exit status 2.
+[2025-01-24T17:32:46.553+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-01-24T17:32:46.570+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-24T17:32:46.572+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-01-24T18:21:14.762+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-24T18:21:14.804+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [queued]>
+[2025-01-24T18:21:14.814+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [queued]>
+[2025-01-24T18:21:14.815+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-01-24T18:21:14.830+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): run_dbt_model> on 2025-01-23 00:00:00+00:00
+[2025-01-24T18:21:14.874+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=233) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-24T18:21:14.865+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_first_dbt_dag', 'run_dbt_model', 'scheduled__2025-01-23T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_first_dbt_dag.py', '--cfg-path', '/tmp/tmpzyfnqcek']
+[2025-01-24T18:21:14.883+0000] {standard_task_runner.py:72} INFO - Started process 235 to run task
+[2025-01-24T18:21:14.884+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask run_dbt_model
+[2025-01-24T18:21:15.089+0000] {task_command.py:467} INFO - Running <TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-23T00:00:00+00:00 [running]> on host b4a1ef9b7f63
+[2025-01-24T18:21:15.235+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_first_dbt_dag' AIRFLOW_CTX_TASK_ID='run_dbt_model' AIRFLOW_CTX_EXECUTION_DATE='2025-01-23T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-23T00:00:00+00:00'
+[2025-01-24T18:21:15.236+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-24T18:21:20.340+0000] {logging_mixin.py:190} INFO - Error during DBT run: 
+[2025-01-24T18:21:20.340+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 54, in run_dbt_model
+    raise e  # Raise again to make sure the task fails correctly
+    ^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 45, in run_dbt_model
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', 'run', '--project-dir', '/opt/dbt-project', '--profiles-dir', '/opt/dbt-project', '--select', 'my_first_dbt_model']' returned non-zero exit status 2.
+[2025-01-24T18:21:20.358+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=my_first_dbt_dag, task_id=run_dbt_model, run_id=scheduled__2025-01-23T00:00:00+00:00, execution_date=20250123T000000, start_date=20250124T182114, end_date=20250124T182120
+[2025-01-24T18:21:20.372+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-24T18:21:20.373+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 2 for task run_dbt_model (Command '['dbt', 'run', '--project-dir', '/opt/dbt-project', '--profiles-dir', '/opt/dbt-project', '--select', 'my_first_dbt_model']' returned non-zero exit status 2.; 235)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 54, in run_dbt_model
+    raise e  # Raise again to make sure the task fails correctly
+    ^^^^^^^
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 45, in run_dbt_model
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', 'run', '--project-dir', '/opt/dbt-project', '--profiles-dir', '/opt/dbt-project', '--select', 'my_first_dbt_model']' returned non-zero exit status 2.
+[2025-01-24T18:21:20.419+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-01-24T18:21:20.441+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-24T18:21:20.443+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

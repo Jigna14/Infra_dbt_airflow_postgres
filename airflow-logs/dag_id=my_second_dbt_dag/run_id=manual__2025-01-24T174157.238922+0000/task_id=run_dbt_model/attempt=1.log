@@ -1,0 +1,38 @@
+[2025-01-24T17:41:57.611+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-24T17:41:57.649+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_second_dbt_dag.run_dbt_model manual__2025-01-24T17:41:57.238922+00:00 [queued]>
+[2025-01-24T17:41:57.673+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_second_dbt_dag.run_dbt_model manual__2025-01-24T17:41:57.238922+00:00 [queued]>
+[2025-01-24T17:41:57.692+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-01-24T17:41:57.721+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): run_dbt_model> on 2025-01-24 17:41:57.238922+00:00
+[2025-01-24T17:41:57.740+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_second_dbt_dag', 'run_dbt_model', 'manual__2025-01-24T17:41:57.238922+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/my_second_dbt_dag.py', '--cfg-path', '/tmp/tmplfpyd1sw']
+[2025-01-24T17:41:57.743+0000] {standard_task_runner.py:105} INFO - Job 13: Subtask run_dbt_model
+[2025-01-24T17:41:57.743+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=572) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-24T17:41:57.744+0000] {standard_task_runner.py:72} INFO - Started process 573 to run task
+[2025-01-24T17:41:57.777+0000] {task_command.py:467} INFO - Running <TaskInstance: my_second_dbt_dag.run_dbt_model manual__2025-01-24T17:41:57.238922+00:00 [running]> on host 77d03311c267
+[2025-01-24T17:41:57.841+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_second_dbt_dag' AIRFLOW_CTX_TASK_ID='run_dbt_model' AIRFLOW_CTX_EXECUTION_DATE='2025-01-24T17:41:57.238922+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-24T17:41:57.238922+00:00'
+[2025-01-24T17:41:57.842+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-24T17:42:02.624+0000] {logging_mixin.py:190} INFO - 17:42:00  Running with dbt=1.6.1
+17:42:00  Registered adapter: postgres=1.6.1
+17:42:01  Found 4 models, 2 seeds, 2 sources, 0 exposures, 0 metrics, 464 macros, 0 groups, 0 semantic models
+17:42:01  
+17:42:01  Concurrency: 1 threads (target='dev')
+17:42:01  
+17:42:01  1 of 4 START sql table model jin_schema.my_first_dbt_model ..................... [RUN]
+17:42:01  1 of 4 OK created sql table model jin_schema.my_first_dbt_model ................ [SELECT 2 in 0.13s]
+17:42:01  2 of 4 START sql table model jin_schema.my_fifth_dag_dbt_model ................. [RUN]
+17:42:01  2 of 4 OK created sql table model jin_schema.my_fifth_dag_dbt_model ............ [SELECT 2 in 0.08s]
+17:42:01  3 of 4 START sql table model jin_schema.my_second_dbt_model .................... [RUN]
+17:42:01  3 of 4 OK created sql table model jin_schema.my_second_dbt_model ............... [SELECT 1 in 0.07s]
+17:42:01  4 of 4 START sql table model jin_schema.my_third_dbt_model ..................... [RUN]
+17:42:01  4 of 4 OK created sql table model jin_schema.my_third_dbt_model ................ [SELECT 2 in 0.07s]
+17:42:01  
+17:42:01  Finished running 4 table models in 0 hours 0 minutes and 0.46 seconds (0.46s).
+17:42:01  
+17:42:01  Completed successfully
+17:42:01  
+17:42:01  Done. PASS=4 WARN=0 ERROR=0 SKIP=0 TOTAL=4
+[2025-01-24T17:42:02.625+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-01-24T17:42:02.638+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-24T17:42:02.639+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=my_second_dbt_dag, task_id=run_dbt_model, run_id=manual__2025-01-24T17:41:57.238922+00:00, execution_date=20250124T174157, start_date=20250124T174157, end_date=20250124T174202
+[2025-01-24T17:42:02.659+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-24T17:42:02.672+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-24T17:42:02.675+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

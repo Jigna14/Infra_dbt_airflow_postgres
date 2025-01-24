@@ -1,0 +1,100 @@
+version: '3.9'
+
+services:
+  airflow-webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: airflow-webserver:latest
+    container_name: airflow-webserver
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=my-secret-key
+      - AIRFLOW__CORE__HOSTNAME_CALLABLE=socket.getfqdn
+      - AIRFLOW__WEBSERVER__BASE_URL=http://localhost:8080
+      - DBT_PROFILES_DIR=/opt/dbt-project/profiles  # Profile directory path inside the container
+      - SLACK_API_TOKEN=https://hooks.slack.com/services/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 # Slack webhook token
+      - SLACK_CHANNEL=#all-jignasha-dobariya  # Slack channel to send notifications
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./airflow-dags:/opt/airflow/dags
+      - ./airflow-logs:/opt/airflow/logs
+      - ./dbt-project:/opt/dbt-project  # Mount the local dbt project to /opt/dbt-project in the container
+    entrypoint: >
+      bash -c "
+      airflow db init &&
+      airflow users create --username jin --firstname jin --lastname User --role Admin --email admin@example.com --password jin &&
+      exec airflow webserver
+      "
+
+  airflow-scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: airflow-scheduler:latest
+    container_name: airflow-scheduler
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__WEBSERVER__SECRET_KEY=my-secret-key
+      - DBT_PROFILES_DIR=/opt/dbt-project/profiles  # Profile directory path inside the container
+      - SLACK_API_TOKEN=https://hooks.slack.com/services/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 # Slack webhook token
+      - SLACK_CHANNEL=#all-jignasha-dobariya  # Slack channel to send notifications
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./airflow-dags:/opt/airflow/dags
+      - ./airflow-logs:/opt/airflow/logs
+      - ./dbt-project:/opt/dbt-project  # Mount the local dbt project to /opt/dbt-project in the container
+    entrypoint: >
+      bash -c "
+      exec airflow scheduler
+      "
+
+  postgres:
+    image: postgres:13
+    container_name: airflow-postgres
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:latest
+    container_name: airflow-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: airflow-pgadmin
+    ports:
+      - "8081:80"  # pgAdmin will be accessible at http://localhost:8081
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com  # Email to log in to pgAdmin
+      PGADMIN_DEFAULT_PASSWORD: admin         # Password for pgAdmin
+    depends_on:
+      - postgres

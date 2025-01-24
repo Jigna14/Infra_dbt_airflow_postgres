@@ -1,0 +1,43 @@
+[2025-01-18T11:56:16.076+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-18T11:56:16.126+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-17T00:00:00+00:00 [queued]>
+[2025-01-18T11:56:16.149+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-17T00:00:00+00:00 [queued]>
+[2025-01-18T11:56:16.162+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-01-18T11:56:16.208+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): run_dbt_model> on 2025-01-17 00:00:00+00:00
+[2025-01-18T11:56:16.221+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_first_dbt_dag', 'run_dbt_model', 'scheduled__2025-01-17T00:00:00+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/my_first_dbt_dag.py', '--cfg-path', '/tmp/tmpkkh4hhgk']
+[2025-01-18T11:56:16.229+0000] {standard_task_runner.py:105} INFO - Job 34: Subtask run_dbt_model
+[2025-01-18T11:56:16.248+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=10085) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-18T11:56:16.249+0000] {standard_task_runner.py:72} INFO - Started process 10088 to run task
+[2025-01-18T11:56:16.514+0000] {task_command.py:467} INFO - Running <TaskInstance: my_first_dbt_dag.run_dbt_model scheduled__2025-01-17T00:00:00+00:00 [running]> on host 10a7333bcdf9
+[2025-01-18T11:56:16.864+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_first_dbt_dag' AIRFLOW_CTX_TASK_ID='run_dbt_model' AIRFLOW_CTX_EXECUTION_DATE='2025-01-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-17T00:00:00+00:00'
+[2025-01-18T11:56:16.870+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-18T11:56:25.070+0000] {logging_mixin.py:190} INFO - 11:56:22  Running with dbt=1.6.1
+11:56:22  Registered adapter: postgres=1.6.1
+11:56:23  Found 4 models, 2 seeds, 2 sources, 0 exposures, 0 metrics, 464 macros, 0 groups, 0 semantic models
+11:56:23  
+11:56:23  Concurrency: 1 threads (target='dev')
+11:56:23  
+11:56:23  1 of 1 START sql table model jin_schema.my_first_dbt_model ..................... [RUN]
+11:56:24  1 of 1 OK created sql table model jin_schema.my_first_dbt_model ................ [SELECT 2 in 0.20s]
+11:56:24  
+11:56:24  Finished running 1 table model in 0 hours 0 minutes and 0.33 seconds (0.33s).
+11:56:24  
+11:56:24  Completed successfully
+11:56:24  
+11:56:24  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-01-18T11:56:25.071+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-01-18T11:56:25.081+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-18T11:56:25.082+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=my_first_dbt_dag, task_id=run_dbt_model, run_id=scheduled__2025-01-17T00:00:00+00:00, execution_date=20250117T000000, start_date=20250118T115616, end_date=20250118T115625
+[2025-01-18T11:56:25.082+0000] {taskinstance.py:1563} INFO - Executing callback at index 0: slack_success_callback
+[2025-01-18T11:56:25.083+0000] {taskinstance.py:1567} ERROR - Error in callback at index 0: slack_success_callback
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1565, in _run_finished_callback
+    callback(context)
+  File "/opt/airflow/dags/my_first_dbt_dag.py", line 35, in slack_success_callback
+    success_task_alert = SlackWebhookOperator(
+                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 489, in apply_defaults
+    raise AirflowException(f"missing keyword argument {missing_args.pop()!r}")
+airflow.exceptions.AirflowException: missing keyword argument 'slack_webhook_conn_id'
+[2025-01-18T11:56:25.134+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-18T11:56:25.151+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-18T11:56:25.153+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

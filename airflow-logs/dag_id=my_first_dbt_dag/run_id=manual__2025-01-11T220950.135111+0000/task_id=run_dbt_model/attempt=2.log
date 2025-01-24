@@ -1,0 +1,32 @@
+[2025-01-11T22:14:56.883+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-11T22:14:56.898+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model manual__2025-01-11T22:09:50.135111+00:00 [queued]>
+[2025-01-11T22:14:56.905+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_first_dbt_dag.run_dbt_model manual__2025-01-11T22:09:50.135111+00:00 [queued]>
+[2025-01-11T22:14:56.906+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 2
+[2025-01-11T22:14:56.923+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): run_dbt_model> on 2025-01-11 22:09:50.135111+00:00
+[2025-01-11T22:14:56.931+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_first_dbt_dag', 'run_dbt_model', 'manual__2025-01-11T22:09:50.135111+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/my_first_dbt_dag.py', '--cfg-path', '/tmp/tmp8lwylbw6']
+[2025-01-11T22:14:56.933+0000] {standard_task_runner.py:105} INFO - Job 18: Subtask run_dbt_model
+[2025-01-11T22:14:56.935+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=605) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-11T22:14:56.936+0000] {standard_task_runner.py:72} INFO - Started process 611 to run task
+[2025-01-11T22:14:56.980+0000] {task_command.py:467} INFO - Running <TaskInstance: my_first_dbt_dag.run_dbt_model manual__2025-01-11T22:09:50.135111+00:00 [running]> on host a1d29b6e6d12
+[2025-01-11T22:14:57.045+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_first_dbt_dag' AIRFLOW_CTX_TASK_ID='run_dbt_model' AIRFLOW_CTX_EXECUTION_DATE='2025-01-11T22:09:50.135111+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-11T22:09:50.135111+00:00'
+[2025-01-11T22:14:57.046+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-11T22:15:01.484+0000] {logging_mixin.py:190} INFO - 22:14:59  Running with dbt=1.9.1
+22:14:59  Registered adapter: postgres=1.9.0
+22:15:00  Found 4 models, 2 seeds, 5 data tests, 2 sources, 546 macros
+22:15:00  
+22:15:00  Concurrency: 1 threads (target='dev')
+22:15:00  
+22:15:00  1 of 1 START sql table model jin_schema.my_first_dbt_model ..................... [RUN]
+22:15:00  1 of 1 OK created sql table model jin_schema.my_first_dbt_model ................ [SELECT 2 in 0.14s]
+22:15:00  
+22:15:00  Finished running 1 table model in 0 hours 0 minutes and 0.25 seconds (0.25s).
+22:15:00  
+22:15:00  Completed successfully
+22:15:00  
+22:15:00  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-01-11T22:15:01.486+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-01-11T22:15:01.495+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-11T22:15:01.496+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=my_first_dbt_dag, task_id=run_dbt_model, run_id=manual__2025-01-11T22:09:50.135111+00:00, execution_date=20250111T220950, start_date=20250111T221456, end_date=20250111T221501
+[2025-01-11T22:15:01.533+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-11T22:15:01.546+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-11T22:15:01.549+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

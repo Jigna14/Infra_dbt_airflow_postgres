@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: jin_schema
+    database: example_server
+    schema: jin_schema
+    tables:
+      - name: source_example_1
+  - name: source_examample
+    database: example_server
+    schema: public
+    tables:
+      - name: source_example_2
