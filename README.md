@@ -1,17 +1,24 @@
-# Project: Airflow, Postgres, Redis, and DBT Integration
+# Airflow, Postgres, Redis, and DBT Integration
 
 ## Overview
-This repository provides a Docker-based setup that integrates Apache Airflow, PostgreSQL with a web UI, Redis, and DBT (Data Build Tool). The project demonstrates a modern data stack by enabling workflow orchestration using Airflow, database management with Postgres, caching with Redis, and data modeling with DBT. Example DAGs showcase how to trigger DBT model builds using Airflow.
+This repository provides a Docker-based setup that integrates:
+- **Apache Airflow**: Orchestrates data workflows.
+- **PostgreSQL**: Database for storing and querying data, complete with a web UI for simplified management.
+- **Redis**: Used for caching.
+- **DBT (Data Build Tool)**: Enables data transformations and modeling.
 
----
+The project demonstrates a modern data stack by combining these technologies and showcases how to trigger DBT model builds using Airflow. Example DAGs are included to help you understand how to leverage these tools together.
 
 ## Features
+- **Apache Airflow**: Orchestrates workflows and schedules tasks.
+- **PostgreSQL**: A relational database for storing data, accompanied by an easy-to-use web UI.
+- **Redis**: Provides caching capabilities for improved performance.
+- **DBT Integration**: Implements data transformations and modeling workflows.
+- **Example Workflows**: Demonstrates how to use Airflow to trigger DBT model builds.
 
-- **Apache Airflow**: Orchestrates data workflows.
-- **PostgreSQL**: Database for storing and querying data.
-- **Redis**: Used for caching.
-- **Web UI for PostgreSQL**: Simplifies database management.
-- **DBT Integration**: Enables data transformations and modeling.
-- **Example Workflows**: Demonstrates building DBT models through Airflow.
-
----
+## Prerequisites
+Before starting, ensure you have the following installed:
+- **DBT Core**
+- **Git Bash**
+- **Visual Studio Code**
+- **Docker Desktop**
