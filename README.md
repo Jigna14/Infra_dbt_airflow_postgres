@@ -24,5 +24,5 @@ Before starting, ensure you have the following installed:
 - **Docker Desktop**
 
 ## Videos for Setup
-Before starting, ensure you have the following installed:
+Before starting, ensure you have the above mentioned prerequisties installed:
 - https://drive.google.com/drive/folders/1WyFJoyRcjCKvwvnvT0cLULkAJyR35mfg?usp=drive_link
