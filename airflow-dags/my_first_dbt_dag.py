@@ -4,7 +4,7 @@ from airflow.operators.python import PythonOperator
 from airflow.providers.slack.operators.slack_webhook import SlackWebhookOperator
 import subprocess
 
-# Slack Webhook URL (use the webhook you created earlier)
+# Slack Webhook URL 
 SLACK_API_TOKEN = "https://hooks.slack.com/services/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"
 slack_channel = "#all-jignasha-dobariya"  # Replace with your Slack channel
 
