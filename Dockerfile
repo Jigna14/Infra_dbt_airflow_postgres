@@ -2,7 +2,7 @@
 
 FROM apache/airflow:latest
 
-# Switch to the Airflow user (you already included this correctly)
+# Switch to the Airflow user 
 USER airflow
 
 # Install DBT core and the DBT Postgres adapter
