@@ -22,7 +22,7 @@ Before starting, ensure you have the following installed:
 - **Git Bash**
 - **Visual Studio Code**
 - **Docker Desktop**
-- 
+
 ## Videos for Setup
 Before starting, ensure you have the following installed:
 - https://drive.google.com/drive/folders/1WyFJoyRcjCKvwvnvT0cLULkAJyR35mfg?usp=drive_link
